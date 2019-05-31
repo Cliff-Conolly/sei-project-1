@@ -1,4 +1,5 @@
-const width = 9
+const width = 20
+const height = 11
 const squares = []
 let playerIndex = Math.floor(width * width / 2)
 
@@ -43,7 +44,7 @@ function init() {
   const grid = document.querySelector('.grid')
 
   // used a for loop to fill my grid with induvidual squares, as many as the with times the width
-  for (let i = 0; i < width * width; i++) {
+  for (let i = 0; i < width * height; i++) {
     const square = document.createElement('div')
     square.classList.add('grid-item')
     square.innerHTML = i

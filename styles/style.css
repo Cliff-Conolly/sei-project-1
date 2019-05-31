@@ -19,10 +19,11 @@ body {
 }
 
 div.grid {
-  width: 1200px;
-  height: 200px;
+  width: 1000px;
+  height: 400px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 div.grid-item {
@@ -32,7 +33,7 @@ div.grid-item {
 }
 
 div.grid-item.player {
-  background-image: url('../assets/pika-sprite.png');
+  background-image: url("/images/space-invaders-icons/pixel_cursor.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
