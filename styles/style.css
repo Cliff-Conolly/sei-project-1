@@ -1,5 +1,38 @@
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
 
 body {
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  background-image: url(https://i.imgur.com/IyoOPwb.jpg?1);
+  background-size: cover;
+}
+
+div.grid {
+  width: 1200px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.grid-item {
+  width: 50px;
+  height: 50px;
+  border: 1px dashed black;
+}
+
+div.grid-item.player {
+  background-image: url('../assets/pika-sprite.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
