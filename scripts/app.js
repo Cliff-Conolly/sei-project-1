@@ -1,8 +1,11 @@
+// Grid state
 const width = 20
 const height = 11
 const squares = []
-let playerIndex = Math.floor(width * width / 2)
-
+//Player state
+let playerIndex = 210
+//Enemy state
+let enemyIndex = 23
 function movePlayer() {
   squares.forEach(square => square.classList.remove('player'))
   squares[playerIndex].classList.add('player')
@@ -21,24 +24,29 @@ function handleKeyDown(e) {
         playerIndex--
       }
       break
-    case 38:
-      if (playerIndex - width >= 0) {
-        playerIndex -= width
-      }
-      break
-    case 40:
-      if (playerIndex + width < width * width) {
-        playerIndex += width
-      }
-      break
+    // case 38:
+    //   if (playerIndex - width >= 0) {
+    //     playerIndex -= width
+    //   }
+    //   break
+    // case 40:
+    //   if (playerIndex + width < width * width) {
+    //     playerIndex += width
+    //   }
+      // break
     default:
       playerShouldMove = false
   }
   if (playerShouldMove) movePlayer()
 }
 
+function handleEnemyMovement() {
+  enemyIndex++
+}
+
 function init() {
   //  our code goes here
+  
 
   // get hold of that parent grid div
   const grid = document.querySelector('.grid')
@@ -51,9 +59,12 @@ function init() {
     squares.push(square)
     grid.append(square)
   }
-
+// Adding the class to the square
   squares[playerIndex].classList.add('player')
   window.addEventListener('keydown', handleKeyDown)
+
+  squares[enemyIndex].classList.add('enemy')
+
 }
 
 window.addEventListener('DOMContentLoaded', init)

@@ -33,7 +33,15 @@ div.grid-item {
 }
 
 div.grid-item.player {
-  background-image: url("/images/space-invaders-icons/pixel_cursor.jpg");
+ background-image: url("../assets/images/space-invaders-icons/baseshipa.ico");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  /* background: red; */
+}
+
+div.grid-item.enemy{
+  background-image: url("../assets/images/space-invaders-icons/saucer1b.ico");
+  background-repeat: no-repeat;
+  background-size: contain;
+
 }
