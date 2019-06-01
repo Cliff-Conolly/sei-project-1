@@ -39,14 +39,21 @@ function handleKeyDown(e) {
   }
   if (playerShouldMove) movePlayer()
 }
+function moveEnemy(){
+  squares.forEach(square => square.classList.remove('enemy'))
+  squares[enemyIndex].classList.add('enemy')
 
-function handleEnemyMovement() {
-  enemyIndex++
+}
+function handleEnemyMovement(){
+// enemyIndex = enemyIndex++
+// enemyIndex = enemyIndex+20
+enemyIndex = enemyIndex-1
+moveEnemy()
 }
 
 function init() {
   //  our code goes here
-  
+
 
   // get hold of that parent grid div
   const grid = document.querySelector('.grid')
@@ -64,7 +71,7 @@ function init() {
   window.addEventListener('keydown', handleKeyDown)
 
   squares[enemyIndex].classList.add('enemy')
-
+ setInterval(handleEnemyMovement, 500)
 }
 
 window.addEventListener('DOMContentLoaded', init)
