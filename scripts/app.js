@@ -40,14 +40,48 @@ function handleKeyDown(e) {
   if (playerShouldMove) movePlayer()
 }
 function moveEnemy(){
+  // Looping through every square in the squares array and
+  // each is a div element, and we're removing the class enemny from all
+  // of the div elements
   squares.forEach(square => square.classList.remove('enemy'))
+  //
   squares[enemyIndex].classList.add('enemy')
 
 }
+
+let moveLeftOrRight = 'left'
+let hasMovedDownOneBlock = false
+
+function isOnLeftOrRightOfGrid() {
+  if (enemyIndex % 20 === 0) {
+  	return true;
+  }
+  if ([19, 39, 59, 79, 99, 119, 139, 159, 179, 199, 219].includes(enemyIndex)) {
+	  return true;
+  }
+  return false;
+}
 // Enemy movement
 function handleEnemyMovement(){
-  enemyIndex = enemyIndex++
-  // enemyIndex = enemyIndex+20
+
+  if (isOnLeftOrRightOfGrid() && !hasMovedDownOneBlock) {
+    	enemyIndex = enemyIndex + 20;
+    hasMovedDownOneBlock = true;
+    if (moveLeftOrRight === 'left') {
+	    moveLeftOrRight = 'right';
+    } else {
+      moveLeftOrRight = 'left';
+    }
+    } else {
+    	hasMovedDownOneBlock = false;
+  	if (moveLeftOrRight === 'left') {
+      	enemyIndex = enemyIndex - 1;
+      } else if (moveLeftOrRight === 'right') {
+  	    enemyIndex = enemyIndex + 1;
+    }
+    }
+  //
+  //
 // enemyIndex = enemyIndex-1
   moveEnemy()
 }
