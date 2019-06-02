@@ -52,10 +52,16 @@ function handleEnemyMovement(){
   moveEnemy()
 }
 // window.addEventListener('keydown')
-document.addEventListener('keydown', () => {
+function fireMissle(e){
+  console.log(e.keyCode)
   const playagame = document.querySelector('#audio')
-  playagame.play
-})
+
+  if (e.keyCode === 32) {
+    playagame.play()
+  }
+}
+
+document.addEventListener('keydown', fireMissle)
 
 function init() {
   //  our code goes here
