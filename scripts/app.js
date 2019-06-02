@@ -46,8 +46,8 @@ function moveEnemy(){
 }
 function handleEnemyMovement(){
 // enemyIndex = enemyIndex++
-// enemyIndex = enemyIndex+20
-enemyIndex = enemyIndex-1
+enemyIndex = enemyIndex+20
+// enemyIndex = enemyIndex-1
 moveEnemy()
 }
 
