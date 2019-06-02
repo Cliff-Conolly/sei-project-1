@@ -44,32 +44,22 @@ function moveEnemy(){
   squares[enemyIndex].classList.add('enemy')
 
 }
+// Enemy movement
 function handleEnemyMovement(){
-  // enemyIndex = enemyIndex++
-  enemyIndex = enemyIndex+20
+  enemyIndex = enemyIndex++
+  // enemyIndex = enemyIndex+20
 // enemyIndex = enemyIndex-1
   moveEnemy()
 }
-
+// window.addEventListener('keydown')
 document.addEventListener('keydown', () => {
-  const playagame = document.querySelector('audio')
+  const playagame = document.querySelector('#audio')
   playagame.play
 })
 
 function init() {
   //  our code goes here
-  // Event listener for firing of Player using space bar
-  // let selectedIcon = false
-  // const playerShip = document.querySelector('grid-item.player');
-  // playerShip.addEventListener('click', () => {
-  //   selectedIcon = 'playership'
-  // })
   //
-  // const playBtn = document.querySelector('spacebar')
-  // playBtn.addEventListener('click', () => {
-  //   const playagame = document
-  // })
-
 
 
 
