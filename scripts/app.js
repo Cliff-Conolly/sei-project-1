@@ -51,14 +51,26 @@ function handleEnemyMovement(){
   moveEnemy()
 }
 
+document.addEventListener('keydown', () => {
+  const playagame = document.querySelector('audio')
+  playagame.play
+})
+
 function init() {
   //  our code goes here
   // Event listener for firing of Player using space bar
-  let selectedIcon = false
-  const playerShip = document.querySelector('grid-item.player');
-  playerShip.addEventListener('click', () => {
-    selectedIcon = 'playership'
-  })
+  // let selectedIcon = false
+  // const playerShip = document.querySelector('grid-item.player');
+  // playerShip.addEventListener('click', () => {
+  //   selectedIcon = 'playership'
+  // })
+  //
+  // const playBtn = document.querySelector('spacebar')
+  // playBtn.addEventListener('click', () => {
+  //   const playagame = document
+  // })
+
+
 
 
 
@@ -83,8 +95,3 @@ function init() {
 }
 
 window.addEventListener('DOMContentLoaded', init)
-
-window.addEventListener('DOMContentLoaded', () => {
-
-
-}
