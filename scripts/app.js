@@ -45,14 +45,22 @@ function moveEnemy(){
 
 }
 function handleEnemyMovement(){
-  enemyIndex = enemyIndex++
+  // enemyIndex = enemyIndex++
   enemyIndex = enemyIndex+20
 // enemyIndex = enemyIndex-1
-moveEnemy()
+  moveEnemy()
 }
 
 function init() {
   //  our code goes here
+  // Event listener for firing of Player using space bar
+  // let selectedIcon = false
+  // const playerShip = document.querySelector('grid-item.player');
+  // playerShip.addEventListener('click', () => {
+  //   selectedIcon = 'start'
+  // })
+
+
 
 
   // get hold of that parent grid div
