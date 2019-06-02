@@ -10,13 +10,16 @@ html, body {
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* height: 100vh; */
+
   background-image: url(https://i.imgur.com/IyoOPwb.jpg?1);
   background-size: cover;
 }
+.gridcontainer {
+padding-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
 
 div.grid {
   width: 1000px;
@@ -47,14 +50,19 @@ div.grid-item.enemy{
 
 }
 
-
+.startbuttons{
+text-align: center;
+display: flow-root;
+/* position:  inherit; */
+}
 
 .startbutton{
   background: rgb(0, 255, 102);
   font-family: PrintChar21;
-  color: red;
+  color:  grey;
   font-size: 25px;
   padding: 2px 10px;
   border: 3px;
-  display: none;
-  text-align: center;
+  position:  fixed;
+  display: inline;
+  /* text-align: center; */
