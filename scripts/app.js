@@ -54,11 +54,11 @@ function handleEnemyMovement(){
 function init() {
   //  our code goes here
   // Event listener for firing of Player using space bar
-  // let selectedIcon = false
-  // const playerShip = document.querySelector('grid-item.player');
-  // playerShip.addEventListener('click', () => {
-  //   selectedIcon = 'start'
-  // })
+  let selectedIcon = false
+  const playerShip = document.querySelector('grid-item.player');
+  playerShip.addEventListener('click', () => {
+    selectedIcon = 'playership'
+  })
 
 
 
@@ -83,3 +83,8 @@ function init() {
 }
 
 window.addEventListener('DOMContentLoaded', init)
+
+window.addEventListener('DOMContentLoaded', () => {
+
+
+}
