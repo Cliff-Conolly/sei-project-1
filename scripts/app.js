@@ -75,19 +75,19 @@ function handleEnemyMovement(){
     } else {
     	hasMovedDownOneBlock = false;
   	if (moveLeftOrRight === 'left') {
-      	enemyIndex = enemyIndex - 1;
+      	enemyIndex = enemyIndex - 1
       } else if (moveLeftOrRight === 'right') {
   	    enemyIndex = enemyIndex + 1;
     }
-    }
+  }
   //
   //
-// enemyIndex = enemyIndex-1
+  // enemyIndex = enemyIndex-1
   moveEnemy()
 }
 // window.addEventListener('keydown')
-function fireMissle(e){
-  console.log(e.keyCode)
+function fireMissile(e){
+  // console.log(e.keyCode)
   const playagame = document.querySelector('#blaster')
 
   if (e.keyCode === 32) {
@@ -95,7 +95,28 @@ function fireMissle(e){
   }
 }
 
-document.addEventListener('keydown', fireMissle)
+let missileIndex = playerIndex -20
+
+// 2. // Movement: Function to add and remove missile
+
+function moveMissile() {
+  squares.forEach(square => square.classList.remove('missile'))
+  missileIndex -= 20
+  squares[missileIndex].classList.add('missile')
+}
+setInterval(moveMissile, 500)
+
+// 3. // Impact : Change initial picture to explosion state and trigger explosion sound
+
+function  enemyXplosion(e) {
+  const enemyHit = document.querySelector('#enemyKill')
+  if (missileIndex === enemyIndex) {
+    enemyHit.play()
+    squares[missileIndex].classList.remove('enemy')
+  }
+}
+
+document.addEventListener('keydown', fireMissile)
 
 function init() {
   //  our code goes here
@@ -116,7 +137,7 @@ function init() {
     squares.push(square)
     grid.append(square)
   }
-// Adding the class to the square
+  // Adding the class to the square
   squares[playerIndex].classList.add('player')
   window.addEventListener('keydown', handleKeyDown)
 
