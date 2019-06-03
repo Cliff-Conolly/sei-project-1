@@ -86,6 +86,9 @@ function handleEnemyMovement(){
   moveEnemy()
 }
 // window.addEventListener('keydown')
+
+let missileIndex = playerIndex -20
+
 function fireMissile(e){
   // console.log(e.keyCode)
   const playagame = document.querySelector('#blaster')
@@ -93,18 +96,24 @@ function fireMissile(e){
   if (e.keyCode === 32) {
     playagame.play()
   }
+  const missileInterval = setInterval(moveMissile, 250)
+  setTimeout(() => {
+    clearInterval(missileInterval)
+    missileIndex = playerIndex -20
+  }, 2500)
 }
 
-let missileIndex = playerIndex -20
 
 // 2. // Movement: Function to add and remove missile
 
 function moveMissile() {
+  enemyXplosion()
   squares.forEach(square => square.classList.remove('missile'))
   missileIndex -= 20
+  console.log(squares[missileIndex])
   squares[missileIndex].classList.add('missile')
 }
-setInterval(moveMissile, 500)
+
 
 // 3. // Impact : Change initial picture to explosion state and trigger explosion sound
 

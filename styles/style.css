@@ -37,7 +37,7 @@ div.grid-item {
 }
 
 div.grid-item.player {
- background-image: url("../assets/images/space-invaders-icons/baseshipa.ico");
+ background-image: url("https://i.imgur.com/YD3kcME.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   /* background: red; */
@@ -51,10 +51,11 @@ div.grid-item.enemy{
 
 }
 
-div.grid-item.missle{
-background-image: url("../assets/images/space-invaders-icons/saucer1b.ico");
+div.grid-item.missile{
+background-image: url("../assets/images/missile.png");
 background-repeat: no-repeat;
 background-size: contain;
+background-position: center;
 }
 
 .startbuttons{
