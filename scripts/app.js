@@ -88,7 +88,7 @@ function handleEnemyMovement(){
 // window.addEventListener('keydown')
 function fireMissle(e){
   console.log(e.keyCode)
-  const playagame = document.querySelector('#audio')
+  const playagame = document.querySelector('#blaster')
 
   if (e.keyCode === 32) {
     playagame.play()
@@ -121,7 +121,7 @@ function init() {
   window.addEventListener('keydown', handleKeyDown)
 
   squares[enemyIndex].classList.add('enemy')
- setInterval(handleEnemyMovement, 500)
+  setInterval(handleEnemyMovement, 500)
 }
 
 window.addEventListener('DOMContentLoaded', init)

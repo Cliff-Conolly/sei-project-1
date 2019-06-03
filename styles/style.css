@@ -32,7 +32,7 @@ div.grid {
 div.grid-item {
   width: 50px;
   height: 50px;
-  /* border: 1px dashed black;
+  border: 1px dashed black;
   color: white; */
 }
 
@@ -49,6 +49,12 @@ div.grid-item.enemy{
   background-repeat: no-repeat;
   background-size: contain;
 
+}
+
+div.grid-item.missle{
+background-image: url("../assets/images/space-invaders-icons/saucer1b.ico");
+background-repeat: no-repeat;
+background-size: contain;
 }
 
 .startbuttons{
