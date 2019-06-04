@@ -127,20 +127,22 @@ function moveMissile() {
 const explode = document.querySelector('explosion')
 function enemyXplosion(e) {
   const enemyHit = document.querySelector('#enemyHit')
+
   if (missileIndex === enemyIndex) {
+    const position = missileIndex
     // clearInterval takes 1 parameter and stops the interval
     clearInterval(enemyIntervalId)
 
     enemyHit.play()
-    squares[missileIndex].classList.remove('enemy')
+    squares[position].classList.remove('enemy')
     // Need to find what
-    explode.play()
-    squares[missileIndex].classList.add('explode')
+    // explode.play()
+    squares[position].classList.add('explosion')
     setTimeout( ()=> {
       //  SetTimeout will remove the enXplosionafter 1 second
-      squares[missileIndex].classList.remove('explode')
+      squares[position].classList.remove('explosion')
 
-    }, 1000)
+    }, 500)
   }
 }
 
@@ -174,8 +176,8 @@ function init() {
   window.addEventListener('keydown', handleKeyDown)
 
   squares[enemyIndex].classList.add('enemy')
-  // Enable to clear and stop enemmy from be ing re-drawn to screem
-  enemyIntervalId = setInterval(handleEnemyMovement, 500)
+  // Enable to clear and stop enemmy from be ing re-drawn to screen
+  enemyIntervalId = setInterval(handleEnemyMovement, 1000)
 }
 
 window.addEventListener('DOMContentLoaded', init)

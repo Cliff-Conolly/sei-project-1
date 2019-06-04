@@ -65,7 +65,8 @@ background-position: center;
 }
 
 div.grid-item.explosion{
-  background-image: url("assets/images/LargeExplosion.png");
+  background-image: url("../assets/images/LargeExplosion.png");
+  /* background-color: red; */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
