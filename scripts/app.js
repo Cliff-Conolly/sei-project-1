@@ -9,6 +9,9 @@ let enemyIndex = 23
 let enemyIntervalId = false
 // Missile state
 let missileInterval = false
+// Missle position
+let missileIndex = playerIndex -20
+
 function movePlayer() {
   squares.forEach(square => square.classList.remove('player'))
   squares[playerIndex].classList.add('player')
@@ -24,6 +27,7 @@ function handleKeyDown(e) {
       break
     case 37:
       if (playerIndex % width > 0) {
+
         playerIndex--
       }
       break
@@ -90,7 +94,7 @@ function handleEnemyMovement(){
 }
 // window.addEventListener('keydown')
 
-let missileIndex = playerIndex -20
+
 
 function fireMissile(e){
   // console.log(e.keyCode)
@@ -129,6 +133,7 @@ function enemyXplosion(e) {
 
     enemyHit.play()
     squares[missileIndex].classList.remove('enemy')
+    // Need to find what
     explode.play()
     squares[missileIndex].classList.add('explode')
     setTimeout( ()=> {
