@@ -32,12 +32,13 @@ div.grid {
 div.grid-item {
   width: 50px;
   height: 50px;
-  border: 1px dashed black;
-  color: white; */
+  
 }
 
 div.grid-item.player {
- background-image: url("https://i.imgur.com/YD3kcME.jpg");
+ background-image: url("../assets/images/Luke's X-Wing Starfighter.F09.watermarked.2k.png");
+
+
   background-repeat: no-repeat;
   background-size: contain;
   /* background: red; */
@@ -45,17 +46,30 @@ div.grid-item.player {
 }
 
 div.grid-item.enemy{
-  background-image: url("../assets/images/space-invaders-icons/saucer1b.ico");
+  background-image: url("../assets/images/Vader's Tie Fighter.G01.watermarked.2k.png");
+  /* url("https://i.imgur.com/ZHeEN2V.jpg"); */
+  /* url("../assets/images/space-invaders-icons/saucer1b.ico"); */
   background-repeat: no-repeat;
   background-size: contain;
 
 }
 
 div.grid-item.missile{
-background-image: url("../assets/images/missile.png");
+background-image: url("../assets/images/Energy Beam.O01.watermarked.2k.png");
+url("https://i.imgur.com/iv0OLQM.jpg");
+/* url("../assets/images/missile.png" */
+
 background-repeat: no-repeat;
 background-size: contain;
 background-position: center;
+}
+
+div.grid-item.explosion{
+  background-image: url("../assets/images/LargeExplosion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
 }
 
 .startbuttons{

@@ -6,6 +6,9 @@ const squares = []
 let playerIndex = 210
 //Enemy state
 let enemyIndex = 23
+let enemyIntervalId = false
+// Missile state
+let missileInterval = false
 function movePlayer() {
   squares.forEach(square => square.classList.remove('player'))
   squares[playerIndex].classList.add('player')
@@ -95,33 +98,45 @@ function fireMissile(e){
 
   if (e.keyCode === 32) {
     playagame.play()
+    missileInterval = setInterval(moveMissile, 150)
+    setTimeout(resetMissile, 1500)
   }
-  const missileInterval = setInterval(moveMissile, 250)
-  setTimeout(() => {
-    clearInterval(missileInterval)
-    missileIndex = playerIndex -20
-  }, 2500)
+
 }
 
-
+function resetMissile() {
+  clearInterval(missileInterval)
+  missileIndex = playerIndex -20
+}
 // 2. // Movement: Function to add and remove missile
 
 function moveMissile() {
   enemyXplosion()
   squares.forEach(square => square.classList.remove('missile'))
   missileIndex -= 20
-  console.log(squares[missileIndex])
+  // console.log(squares[missileIndex])
   squares[missileIndex].classList.add('missile')
 }
 
 
 // 3. // Impact : Change initial picture to explosion state and trigger explosion sound
-
-function  enemyXplosion(e) {
+const explode = document.querySelector('enXplosion')
+function enemyXplosion(e) {
   const enemyHit = document.querySelector('#enemyKill')
   if (missileIndex === enemyIndex) {
+    // clearInterval takes 1 parameter and stops the interval
+    clearInterval(enemyIntervalId)
+
     enemyHit.play()
     squares[missileIndex].classList.remove('enemy')
+    // Find out what is used to play a gif  below
+    explode.play()
+    squares[missileIndex].classList.add('explosion')
+    setTimeout( ()=> {
+      //  SetTimeout will remove the enXplosionafter 1 second
+      squares[missileIndex].classList.remove('explosion')
+
+    }, 1000)
   }
 }
 
@@ -130,6 +145,10 @@ document.addEventListener('keydown', fireMissile)
 function init() {
   //  our code goes here
   //
+
+
+
+
 
 
 
@@ -151,7 +170,8 @@ function init() {
   window.addEventListener('keydown', handleKeyDown)
 
   squares[enemyIndex].classList.add('enemy')
-  setInterval(handleEnemyMovement, 500)
+  // Enable to clear and stop enemmy from be ing re-drawn to screem
+  enemyIntervalId = setInterval(handleEnemyMovement, 500)
 }
 
 window.addEventListener('DOMContentLoaded', init)
