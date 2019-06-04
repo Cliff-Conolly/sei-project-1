@@ -11,6 +11,7 @@ let enemyIntervalId = false
 let missileInterval = false
 // Missle position
 let missileIndex = playerIndex -20
+let laser = false
 
 function movePlayer() {
   squares.forEach(square => square.classList.remove('player'))
@@ -100,15 +101,18 @@ function fireMissile(e){
   // console.log(e.keyCode)
   const playagame = document.querySelector('#blaster')
 
-  if (e.keyCode === 32) {
+  if (e.keyCode === 32 && !laser) {
+    laser = true
     playagame.play()
+    missileIndex = playerIndex -20
     missileInterval = setInterval(moveMissile, 150)
-    setTimeout(resetMissile, 1500)
+    // setTimeout(resetMissile, 1500)
   }
 
 }
 
 function resetMissile() {
+  laser = false
   clearInterval(missileInterval)
   missileIndex = playerIndex -20
 }
@@ -119,7 +123,12 @@ function moveMissile() {
   squares.forEach(square => square.classList.remove('missile'))
   missileIndex -= 20
   // console.log(squares[missileIndex])
-  squares[missileIndex].classList.add('missile')
+  if (squares[missileIndex]) {
+    squares[missileIndex].classList.add('missile')
+  } else {
+    resetMissile()
+  }
+
 }
 
 
