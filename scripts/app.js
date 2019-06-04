@@ -13,6 +13,10 @@ let missileInterval = false
 let missileIndex = playerIndex -20
 let laser = false
 
+
+// ************************************************************************************************
+// PLAYER MOVEMENT
+// ************************************************************************************************
 function movePlayer() {
   squares.forEach(square => square.classList.remove('player'))
   squares[playerIndex].classList.add('player')
@@ -47,6 +51,10 @@ function handleKeyDown(e) {
   }
   if (playerShouldMove) movePlayer()
 }
+
+// *************************************************************************************************
+// ENEMY MOVEMENT
+// *************************************************************************************************
 function moveEnemy(){
   // Looping through every square in the squares array and
   // each is a div element, and we're removing the class enemny from all
@@ -95,8 +103,11 @@ function handleEnemyMovement(){
 }
 // window.addEventListener('keydown')
 
+// **********************************************************************************************
+// PLAYER MISSILE
+// **********************************************************************************************
 
-
+//  Fire Missile
 function fireMissile(e){
   // console.log(e.keyCode)
   const playagame = document.querySelector('#blaster')
@@ -111,13 +122,7 @@ function fireMissile(e){
 
 }
 
-function resetMissile() {
-  laser = false
-  clearInterval(missileInterval)
-  missileIndex = playerIndex -20
-}
-// 2. // Movement: Function to add and remove missile
-
+//  Move Missile (upwards)
 function moveMissile() {
   enemyXplosion()
   squares.forEach(square => square.classList.remove('missile'))
@@ -131,8 +136,20 @@ function moveMissile() {
 
 }
 
+//  Reset Missile (so that it doesn't stay onscreen)
+function resetMissile() {
+  laser = false
+  clearInterval(missileInterval)
+  missileIndex = playerIndex -20
+}
+// 2. // Movement: Function to add and remove missile
 
-// 3. // Impact : Change initial picture to explosion state and trigger explosion sound
+
+
+// **********************************************************************************************
+// ENEMY EXPLOSION
+// **********************************************************************************************
+// Change initial picture to explosion state and trigger explosion sound
 const explode = document.querySelector('explosion')
 function enemyXplosion(e) {
   const enemyHit = document.querySelector('#enemyHit')
@@ -156,6 +173,9 @@ function enemyXplosion(e) {
 }
 
 document.addEventListener('keydown', fireMissile)
+
+
+
 
 function init() {
   //  our code goes here
