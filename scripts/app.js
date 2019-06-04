@@ -49,7 +49,7 @@ function moveEnemy(){
   squares.forEach(square => square.classList.remove('enemy'))
   //
   squares[enemyIndex].classList.add('enemy')
-
+  // squares[missileIndex].classList.add('missile')
 }
 
 let moveLeftOrRight = 'left'
@@ -120,21 +120,20 @@ function moveMissile() {
 
 
 // 3. // Impact : Change initial picture to explosion state and trigger explosion sound
-const explode = document.querySelector('enXplosion')
+const explode = document.querySelector('explosion')
 function enemyXplosion(e) {
-  const enemyHit = document.querySelector('#enemyKill')
+  const enemyHit = document.querySelector('#enemyHit')
   if (missileIndex === enemyIndex) {
     // clearInterval takes 1 parameter and stops the interval
     clearInterval(enemyIntervalId)
 
     enemyHit.play()
     squares[missileIndex].classList.remove('enemy')
-    // Find out what is used to play a gif  below
     explode.play()
-    squares[missileIndex].classList.add('explosion')
+    squares[missileIndex].classList.add('explode')
     setTimeout( ()=> {
       //  SetTimeout will remove the enXplosionafter 1 second
-      squares[missileIndex].classList.remove('explosion')
+      squares[missileIndex].classList.remove('explode')
 
     }, 1000)
   }
