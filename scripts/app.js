@@ -5,14 +5,17 @@ const squares = []
 //Player state
 let playerIndex = 210
 //Enemy state
-let enemyIndex = 23
-let enemyIntervalId = false
+let enemyOneIndex = 23
+let enemyTwoIndex = 24
+let enemyOneIntervalId = false
+let enemyTwoIntervalId = false
 // Missile state
 let missileInterval = false
 // Missle position
 let missileIndex = playerIndex -20
 let laser = false
-
+// Bomb Position
+let bombIndex = playerIndex +20
 
 // ************************************************************************************************
 // PLAYER MOVEMENT
@@ -53,15 +56,15 @@ function handleKeyDown(e) {
 }
 
 // *************************************************************************************************
-// ENEMY MOVEMENT
+// ENEMY ONE MOVEMENT
 // *************************************************************************************************
-function moveEnemy(){
+function moveEnemyOne(){
   // Looping through every square in the squares array and
   // each is a div element, and we're removing the class enemny from all
   // of the div elements
   squares.forEach(square => square.classList.remove('enemy'))
   //
-  squares[enemyIndex].classList.add('enemy')
+  squares[enemyOneIndex].classList.add('enemy')
   // squares[missileIndex].classList.add('missile')
 }
 
@@ -69,19 +72,19 @@ let moveLeftOrRight = 'left'
 let hasMovedDownOneBlock = false
 
 function isOnLeftOrRightOfGrid() {
-  if (enemyIndex % 20 === 0) {
+  if (enemyOneIndex % 20 === 0) {
   	return true;
   }
-  if ([19, 39, 59, 79, 99, 119, 139, 159, 179, 199, 219].includes(enemyIndex)) {
+  if ([19, 39, 59, 79, 99, 119, 139, 159, 179, 199, 219].includes(enemyOneIndex)) {
 	  return true;
   }
   return false;
 }
 // Enemy movement
-function handleEnemyMovement(){
+function handleEnemyOneMovement(){
 
   if (isOnLeftOrRightOfGrid() && !hasMovedDownOneBlock) {
-    	enemyIndex = enemyIndex + 20;
+    	enemyOneIndex = enemyOneIndex + 20;
     hasMovedDownOneBlock = true;
     if (moveLeftOrRight === 'left') {
 	    moveLeftOrRight = 'right';
@@ -91,18 +94,67 @@ function handleEnemyMovement(){
     } else {
     	hasMovedDownOneBlock = false;
   	if (moveLeftOrRight === 'left') {
-      	enemyIndex = enemyIndex - 1
+      	enemyOneIndex = enemyOneIndex - 1
       } else if (moveLeftOrRight === 'right') {
-  	    enemyIndex = enemyIndex + 1;
+  	    enemyOneIndex = enemyOneIndex + 1;
     }
   }
   //
   //
-  // enemyIndex = enemyIndex-1
-  moveEnemy()
+  // enemyOneIndex = enemyOneIndex-1
+  moveEnemyOne()
 }
-// window.addEventListener('keydown')
 
+
+// *************************************************************************************************
+// ENEMY TWO MOVEMENT
+// *************************************************************************************************
+function moveEnemyTwo(){
+  // Looping through every square in the squares array and
+  // each is a div element, and we're removing the class enemny from all
+  // of the div elements
+  squares.forEach(square => square.classList.remove('enemy'))
+  //
+  squares[enemyTwoIndex].classList.add('enemy')
+  // squares[missileIndex].classList.add('missile')
+}
+
+let moveLeftOrRight2= 'left'
+let hasMovedDownOneBlock2 = false
+
+function isOnLeftOrRightOfGrid2() {
+  if (enemyTwoIndex % 20 === 0) {
+  	return true;
+  }
+  if ([19, 39, 59, 79, 99, 119, 139, 159, 179, 199, 219].includes(enemyTwoIndex)) {
+	  return true;
+  }
+  return false;
+}
+// Enemy movement
+function handleEnemyTwoMovement(){
+
+  if (isOnLeftOrRightOfGrid2() && !hasMovedDownOneBlock2) {
+    	enemyTwoIndex = enemyTwoIndex + 20;
+    hasMovedDownOneBlock2 = true;
+    if (moveLeftOrRight2=== 'left') {
+	    moveLeftOrRight2= 'right';
+    } else {
+      moveLeftOrRight2= 'left';
+    }
+    } else {
+    	hasMovedDownOneBlock2 = false;
+  	if (moveLeftOrRight2=== 'left') {
+      	enemyTwoIndex = enemyTwoIndex - 1
+      } else if (moveLeftOrRight2=== 'right') {
+  	    enemyTwoIndex = enemyTwoIndex + 1;
+    }
+  }
+  //
+  //
+  // enemyTwoIndex = enemyTwoIndex-1
+  moveEnemyTwo()
+}
 // **********************************************************************************************
 // PLAYER MISSILE
 // **********************************************************************************************
@@ -110,11 +162,11 @@ function handleEnemyMovement(){
 //  Fire Missile
 function fireMissile(e){
   // console.log(e.keyCode)
-  const playagame = document.querySelector('#blaster')
+  const shootBlast = document.querySelector('#blaster')
 
   if (e.keyCode === 32 && !laser) {
     laser = true
-    playagame.play()
+    shootBlast.play()
     missileIndex = playerIndex -20
     missileInterval = setInterval(moveMissile, 150)
     // setTimeout(resetMissile, 1500)
@@ -144,20 +196,24 @@ function resetMissile() {
 }
 // 2. // Movement: Function to add and remove missile
 
+//*******************************************************************************************
+// ENEMY BOMB
+// ******************************************************************************************
+
 
 
 // **********************************************************************************************
-// ENEMY EXPLOSION
+// ENEMY ONE EXPLOSION
 // **********************************************************************************************
 // Change initial picture to explosion state and trigger explosion sound
-const explode = document.querySelector('explosion')
+const explode1 = document.querySelector('explosion')
 function enemyXplosion(e) {
   const enemyHit = document.querySelector('#enemyHit')
 
-  if (missileIndex === enemyIndex) {
+  if (missileIndex === enemyOneIndex) {
     const position = missileIndex
     // clearInterval takes 1 parameter and stops the interval
-    clearInterval(enemyIntervalId)
+    clearInterval(enemyOneIntervalId)
 
     enemyHit.play()
     squares[position].classList.remove('enemy')
@@ -171,6 +227,34 @@ function enemyXplosion(e) {
     }, 500)
   }
 }
+
+// **********************************************************************************************
+// ENEMY TWO EXPLOSION
+// **********************************************************************************************
+// Change initial picture to explosion state and trigger explosion sound
+const explode2 = document.querySelector('explosion')
+function enemyXplosion(e) {
+  const enemyHit = document.querySelector('#enemyHit')
+
+  if (missileIndex === enemyTwoIndex) {
+    const position = missileIndex
+    // clearInterval takes 1 parameter and stops the interval
+    clearInterval(enemyTwoIntervalId)
+
+    enemyHit.play()
+    squares[position].classList.remove('enemy')
+    // Need to find what
+    // explode.play()
+    squares[position].classList.add('explosion')
+    setTimeout( ()=> {
+      //  SetTimeout will remove the enXplosionafter 1 second
+      squares[position].classList.remove('explosion')
+
+    }, 500)
+  }
+}
+
+
 
 document.addEventListener('keydown', fireMissile)
 
@@ -204,9 +288,11 @@ function init() {
   squares[playerIndex].classList.add('player')
   window.addEventListener('keydown', handleKeyDown)
 
-  squares[enemyIndex].classList.add('enemy')
+  squares[enemyOneIndex].classList.add('enemy')
+  squares[enemyTwoIndex].classList.add('enemy')
   // Enable to clear and stop enemmy from be ing re-drawn to screen
-  enemyIntervalId = setInterval(handleEnemyMovement, 1000)
+  enemyOneIntervalId = setInterval(handleEnemyOneMovement, 1000)
+  enemyTwoIntervalId = setInterval(handleEnemyTwoMovement, 1000)
 }
 
 window.addEventListener('DOMContentLoaded', init)

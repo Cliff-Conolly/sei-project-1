@@ -15,7 +15,7 @@ body {
   background-size: cover;
 }
 .gridcontainer {
-  padding-top: 160px;
+  padding-top: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,17 +73,36 @@ div.grid-item.explosion{
 
 }
 
-.startbuttons{
-text-align: center;
+.header{
+padding-top: 155px;
+display: flex;
+justify-content: space-around;
 
 }
 
-.startbutton{
+.scorekeeper{
+  text-align: center;
   background: rgb(0, 255, 102);
   font-family: PrintChar21;
   color:  grey;
-  font-size: 25px;
-  padding: 2px 5px;
-  border: 3px;
+  font-size: 15px;
   display: inline-block;
-  margin-top: 140px;
+}
+
+.startbutton{
+text-align: center;
+background: rgb(0, 255, 102);
+font-family: PrintChar21;
+color:  grey;
+font-size: 15px;
+display: inline-block;
+}
+
+.lives{
+text-align: center;
+background: rgb(0, 255, 102);
+font-family: PrintChar21;
+color:  grey;
+font-size: 15px;
+display: inline-block;
+}

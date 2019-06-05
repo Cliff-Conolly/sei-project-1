@@ -8,17 +8,33 @@
     <script type="text/javascript" src="scripts/app.js"></script>
   </head>
     <body>
-      <div class="gridcontainer">
-          <div class="grid"></div>
-      </div>
 
-    <!-- <div class="">
-        <div class="startbutton" id="start">START</div>
-    </div> -->
-    <div  class="startbuttons">
-    <div class="startbutton" id="start">Start</div>
-    <!-- <a class="button is-large is-rounded is-success is-focused has-text-weight-bold is-centered" id="start">START/RESET</a> -->
+
+<!----------------------------HEADERS--------------------------------->
+<div class="header">
+
+    <div class="scorekeeper">
+        <div id="player">Score:<span id="counter">0</span></div>
+    </div>
+
+    <div class="startbutton">
+       <span><div id="start">START</div></span>
+    </div>
+
+
+    <div class="lives">
+        <div id="ships">Lives:<span id="minusship">3</span></div>
+     </div>
+
   </div>
+
+  <!----------------------------GRID--------------------------------->
+
+  <div class="gridcontainer">
+  <div class="grid"></div>
+  </div>
+
+
 
   <audio id="blaster" src="assets/audio/blaster-firing.mp3" ></audio>
   <audio id="enemyHit" src="assets/audio/TIE_fighter_explode.mp3" ></audio>
