@@ -6,7 +6,8 @@ const squares = []
 let playerIndex = 210
 //Enemy state
 let enemyOneIndex = 23
-let enemyTwoIndex = 25
+let enemyTwoIndex = 24
+let enemyThreeIndex = 24
 let enemyOneIntervalId = false
 let enemyTwoIntervalId = false
 // Missile state
@@ -14,6 +15,8 @@ let missileInterval = false
 // Missle position
 let missileIndex = playerIndex -20
 let laser = false
+// Star Destoyer
+// let destroyer = 19
 // Bomb Position
 // let bombIndex = enemyOneIndex +20
 // let bomb1 = false
@@ -172,6 +175,53 @@ function init() {
         console.log(enemyTwoIndex)
         moveEnemyOne()
       }
+
+      // *************************************************************************************************
+      // ENEMY THREE MOVEMENT
+      // *************************************************************************************************
+      let moveLeftOrRight3= 'left'
+            let hasMovedDownOneBlock3 = false
+            //
+            function isOnLeftOrRightOfGrid3() {
+              if (enemyThreeIndex % 20 === 0) {
+                return true
+              }
+              if ([19, 39, 59, 79, 99, 119, 139, 159, 179, 199, 219].includes(enemyThreeIndex)) {
+                return true
+              }
+              return false
+            }
+            // Enemy movement
+            function handleEnemyThreeMovement(){
+
+              if (isOnLeftOrRightOfGrid3() && !hasMovedDownOneBlock3) {
+                enemyThreeIndex = enemyThreeIndex + 20
+                hasMovedDownOneBlock3= true
+                if (moveLeftOrRight3=== 'left') {
+                  moveLeftOrRight3= 'right'
+                } else {
+                  moveLeftOrRight3= 'left'
+                }
+              } else {
+                hasMovedDownOneBlock3= false
+                if (moveLeftOrRight3=== 'left') {
+                  enemyThreeIndex = enemyThreeIndex - 1
+                } else if (moveLeftOrRight3=== 'right') {
+                  enemyThreeIndex = enemyThreeIndex + 1
+                }
+
+                //
+                //
+                // enemyThreeIndex = enemyThreeIndex-1
+                console.log(enemyThreeIndex)
+                moveEnemyOne()
+              }
+
+
+
+
+
+
       // **********************************************************************************************
       // PLAYER MISSILE
       // **********************************************************************************************
@@ -278,6 +328,23 @@ function init() {
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // get hold of that parent grid div
     const grid = document.querySelector('.grid')
 
@@ -301,5 +368,6 @@ function init() {
   }
 
 }
+
 
 window.addEventListener('DOMContentLoaded', init)

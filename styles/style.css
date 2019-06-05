@@ -73,6 +73,13 @@ div.grid-item.explosion{
 
 }
 
+div.grid-item.destroyer{
+  background-image: url("../assets/images/Millennium Falcon.F09.watermarked.2k.png");
+   background-repeat: no-repeat;
+   background-size: contain;
+
+}
+
 .header{
 padding-top: 155px;
 display: flex;
