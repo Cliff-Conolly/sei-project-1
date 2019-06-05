@@ -89,7 +89,12 @@ justify-content: space-around;
   display: inline-block;
 }
 
-.startbutton{
+/* .button{
+color: rgb(0, 255, 102);
+} */
+
+
+.start{
 text-align: center;
 background: rgb(0, 255, 102);
 font-family: PrintChar21;
