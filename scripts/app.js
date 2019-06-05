@@ -196,9 +196,77 @@ function resetMissile() {
 }
 // 2. // Movement: Function to add and remove missile
 
-//*******************************************************************************************
+///*******************************************************************************************
 // ENEMY BOMB
 // ******************************************************************************************
+
+
+//  Fire Bomb
+function fireBomb(e){
+  // console.log(e.keyCode)
+  const shootBlast = document.querySelector('#blaster')
+
+  if (e.keyCode === 32 && !laser) {
+    laser = true
+    shootBlast.play()
+    bombIndex = playerIndex +20
+    bombInterval = setInterval(moveBomb, 150)
+
+  }
+
+}
+
+//  Move Bomb (downwards)
+function moveBomb() {
+  playerXplosion()
+  squares.forEach(square => square.classList.remove('missile'))
+  bombIndex += 20
+  // console.log(squares[bombIndex])
+  if (squares[bombIndex]) {
+    squares[bombIndex].classList.add('missile')
+  } else {
+    resetBomb()
+  }
+
+}
+
+//  Reset Bomb (so that it doesn't stay onscreen)
+function resetBomb() {
+  laser = false
+  clearInterval(missileInterval)
+  bombIndex = playerIndex +20
+}
+// 2. // Movement: Function to add and remove missile
+
+
+
+
+// **********************************************************************************************
+// PLAYER EXPLOSION
+// **********************************************************************************************
+// Change initial picture to explosion state and trigger explosion sound
+const player1 = document.querySelector('explosion')
+function playerXplosion(e) {
+  const enemyHit = document.querySelector('#enemyHit')
+
+  if (bombIndex === enemyOneIndex) {
+    const position = bombIndex
+    // clearInterval takes 1 parameter and stops the interval
+    clearInterval(enemyOneIntervalId)
+
+    enemyHit.play()
+    squares[position].classList.remove('enemy')
+    // Need to find what
+    // explode.play()
+    squares[position].classList.add('explosion')
+    setTimeout( ()=> {
+      //  SetTimeout will remove the enXplosionafter 1 second
+      squares[position].classList.remove('explosion')
+
+    }, 500)
+  }
+}
+
 
 
 
@@ -257,6 +325,7 @@ function enemyXplosion(e) {
 
 
 document.addEventListener('keydown', fireMissile)
+document.addEventListener('keydown', fireBomb)
 
 
 
