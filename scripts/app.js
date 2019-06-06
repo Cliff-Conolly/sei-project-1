@@ -6,7 +6,7 @@ const squares = []
 let playerIndex = 210
 //Enemy state
 let enemyOneIndex = 23
-let enemyTwoIndex = 24
+let enemyTwoIndex = 27
 // let enemyThreeIndex = 25
 let playerIntervalID = false
 let enemyOneIntervalId = false
@@ -18,6 +18,7 @@ let bombInterval = false
 // Missle / Bomb position
 let missileIndex = playerIndex -20
 let bombIndex = enemyOneIndex +20
+let bombIndex1 = enemyTwoIndex +20
 // let bombIndex = enemyTwoIndex +20
 let laser = false
 let bomb1 = false
@@ -314,12 +315,15 @@ function init() {
 
         shootBlast.play()
         bombIndex = enemyOneIndex +20
+        // bombIndex1 = enemyTwoIndex +20
+        // bombIndex = enemyTwoIndex +20
+
         // bombInterval = setInterval(moveBomb, 150)
         moveBomb()
 
 
       }
-      setInterval(fireBomb, 3000)
+      setInterval(fireBomb, 5000)
 
       //  Move Bomb (downwards) [image]
       function moveBomb() {
