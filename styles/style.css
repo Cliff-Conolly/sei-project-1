@@ -64,6 +64,13 @@ background-size: contain;
 background-position: center;
 }
 
+div.grid-item.bomb{
+background-image: url("../assets/images/enemy_beam.png");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+}
+
 div.grid-item.explosion{
   background-image: url("../assets/images/LargeExplosion.png");
   /* background-color: red; */

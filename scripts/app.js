@@ -1,4 +1,4 @@
-// Grid state
+//  Grid state
 const width = 20
 const height = 11
 const squares = []
@@ -7,14 +7,20 @@ let playerIndex = 210
 //Enemy state
 let enemyOneIndex = 23
 let enemyTwoIndex = 24
-let enemyThreeIndex = 24
+// let enemyThreeIndex = 25
+let playerIntervalID = false
 let enemyOneIntervalId = false
 let enemyTwoIntervalId = false
-// Missile state
+// let enemyThreeIntervalId = false
+// // Missile / Bomb state
 let missileInterval = false
-// Missle position
+let bombInterval = false
+// Missle / Bomb position
 let missileIndex = playerIndex -20
+let bombIndex = enemyOneIndex +20
+// let bombIndex = enemyTwoIndex +20
 let laser = false
+let bomb1 = false
 // Star Destoyer
 // let destroyer = 19
 // Bomb Position
@@ -35,7 +41,7 @@ function init() {
   function onStartClick(){
 
     // ************************************************************************************************
-    // PLAYER MOVEMENT
+    // PLAYER MOVEMENT & FIRING
     // ************************************************************************************************
     function movePlayer() {
       squares.forEach(square => square.classList.remove('player'))
@@ -83,6 +89,7 @@ function init() {
       //
       if (enemyOneIndex) squares[enemyOneIndex].classList.add('enemy')
       if (enemyTwoIndex) squares[enemyTwoIndex].classList.add('enemy')
+      // if (enemyThreeIndex) squares[enemyThreeIndex].classList.add('enemy')
       // squares[missileIndex].classList.add('missile')
     }
 
@@ -128,15 +135,15 @@ function init() {
     // *************************************************************************************************
     // ENEMY TWO MOVEMENT
     // *************************************************************************************************
-    // function moveEnemyTwo(){
-    //   // Looping through every square in the squares array and
-    //   // each is a div element, and we're removing the class enemny from all
-    //   // of the div elements
-    //   squares.forEach(square => square.classList.remove('enemy'))
-    //   //
-    //   squares[enemyTwoIndex].classList.add('enemy')
-    //   // squares[missileIndex].classList.add('missile')
-    // }
+    function moveEnemyTwo(){
+      //   // Looping through every square in the squares array and
+      //   // each is a div element, and we're removing the class enemny from all
+      //   // of the div elements
+      //   squares.forEach(square => square.classList.remove('enemy'))
+      //   //
+      squares[enemyTwoIndex].classList.add('enemy')
+      //   // squares[missileIndex].classList.add('missile')
+    }
     //
     let moveLeftOrRight2= 'left'
     let hasMovedDownOneBlock2 = false
@@ -175,52 +182,6 @@ function init() {
         console.log(enemyTwoIndex)
         moveEnemyOne()
       }
-
-      // *************************************************************************************************
-      // ENEMY THREE MOVEMENT
-      // *************************************************************************************************
-      let moveLeftOrRight3= 'left'
-            let hasMovedDownOneBlock3 = false
-            //
-            function isOnLeftOrRightOfGrid3() {
-              if (enemyThreeIndex % 20 === 0) {
-                return true
-              }
-              if ([19, 39, 59, 79, 99, 119, 139, 159, 179, 199, 219].includes(enemyThreeIndex)) {
-                return true
-              }
-              return false
-            }
-            // Enemy movement
-            function handleEnemyThreeMovement(){
-
-              if (isOnLeftOrRightOfGrid3() && !hasMovedDownOneBlock3) {
-                enemyThreeIndex = enemyThreeIndex + 20
-                hasMovedDownOneBlock3= true
-                if (moveLeftOrRight3=== 'left') {
-                  moveLeftOrRight3= 'right'
-                } else {
-                  moveLeftOrRight3= 'left'
-                }
-              } else {
-                hasMovedDownOneBlock3= false
-                if (moveLeftOrRight3=== 'left') {
-                  enemyThreeIndex = enemyThreeIndex - 1
-                } else if (moveLeftOrRight3=== 'right') {
-                  enemyThreeIndex = enemyThreeIndex + 1
-                }
-
-                //
-                //
-                // enemyThreeIndex = enemyThreeIndex-1
-                console.log(enemyThreeIndex)
-                moveEnemyOne()
-              }
-
-
-
-
-
 
       // **********************************************************************************************
       // PLAYER MISSILE
@@ -273,14 +234,14 @@ function init() {
       // Change initial picture to explosion state and trigger explosion sound
       const explode1 = document.querySelector('explosion')
       function enemyXplosion(e) {
-        const enemyHit = document.querySelector('#enemyHit')
+        const hit = document.querySelector('#hit')
 
         if (missileIndex === enemyOneIndex) {
           const position = missileIndex
           // clearInterval takes 1 parameter and stops the interval
           clearInterval(enemyOneIntervalId)
           enemyOneIndex = null
-          enemyHit.play()
+          hit.play()
           squares[position].classList.remove('enemy')
           // Need to find what
           // explode.play()
@@ -299,14 +260,14 @@ function init() {
       // Change initial picture to explosion state and trigger explosion sound
       const explode2 = document.querySelector('explosion')
       function enemyXplosionTwo(e) {
-        const enemyHit = document.querySelector('#enemyHit')
+        const hit = document.querySelector('#hit')
 
         if (missileIndex === enemyTwoIndex) {
           const position = missileIndex
           // clearInterval takes 1 parameter and stops the interval
           clearInterval(enemyTwoIntervalId)
           enemyTwoIndex = null
-          enemyHit.play()
+          hit.play()
           squares[position].classList.remove('enemy')
           // Need to find what
           // explode.play()
@@ -325,23 +286,7 @@ function init() {
       // document.addEventListener('keydown', fireBomb)
 
 
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -362,12 +307,16 @@ function init() {
 
     squares[enemyOneIndex].classList.add('enemy')
     squares[enemyTwoIndex].classList.add('enemy')
+    // squares[enemyThreeIndex].classList.add('enemy')
     // Enable to clear and stop enemmy from be ing re-drawn to screen
     enemyOneIntervalId = setInterval(handleEnemyOneMovement, 1000)
     enemyTwoIntervalId = setInterval(handleEnemyTwoMovement, 1000)
+    // enemyThreeIntervalId = setInterval(handleEnemyThreeMovement, 1000)
   }
 
 }
+
+
 
 
 window.addEventListener('DOMContentLoaded', init)
