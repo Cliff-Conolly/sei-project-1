@@ -30,13 +30,36 @@ let bomb1 = false
 // const start = document.querySelector('.start')
 // start.addEventListener('click', onStartClick)
 
+// ************************************************************************************************
+// INTIALIZE THE CODE
+// ************************************************************************************************
 function init() {
-  //  our code goes here
+  //  our code to excute the actionable functions starts in this 'init' function
   //
+  // ************************************************************************************************
+  // FILL GRID
+  // ************************************************************************************************
+  // get hold of that parent grid div
+  const grid = document.querySelector('.grid')
+
+  // used a for loop to fill my grid with induvidual squares, as many as the with times the width
+  for (let i = 0; i < width * height; i++) {
+    const square = document.createElement('div')
+    square.classList.add('grid-item')
+    square.innerHTML = i
+    squares.push(square)
+    grid.append(square)
+  }
+
+  // ************************************************************************************************
+  // LISTEN FOR 'CLICK' ON START BUTTON...THEN START
+  // ************************************************************************************************
+
 
   const start = document.querySelector('.start')
   console.log(start)
   start.addEventListener('click', onStartClick)
+
 
   function onStartClick(){
 
@@ -145,7 +168,7 @@ function init() {
       //   // squares[missileIndex].classList.add('missile')
     }
     //
-    let moveLeftOrRight2= 'left'
+    let moveLeftOrRight2 = 'left'
     let hasMovedDownOneBlock2 = false
     //
     function isOnLeftOrRightOfGrid2() {
@@ -280,6 +303,80 @@ function init() {
         }
       }
 
+      ///*******************************************************************************************
+      // ENEMY BOMB
+      // ******************************************************************************************
+
+
+      //  Fire Bomb [sound]
+      function fireBomb(){
+        const shootBlast = document.querySelector('#blaster')
+
+        shootBlast.play()
+        bombIndex = enemyOneIndex +20
+        // bombInterval = setInterval(moveBomb, 150)
+        moveBomb()
+
+
+      }
+      setInterval(fireBomb, 3000)
+
+      //  Move Bomb (downwards) [image]
+      function moveBomb() {
+        playerXplosion()
+        squares.forEach(square => square.classList.remove('bomb'))
+        bombIndex += 20
+        // console.log(squares[bombIndex])
+        if (squares[bombIndex]) {
+          squares[bombIndex].classList.add('bomb')
+        } else {
+          resetBomb()
+        }
+        setTimeout(moveBomb, 500)
+      }
+
+      //  Reset Bomb (so that it doesn't stay onscreen)
+      function resetBomb() {
+        bomb1 = false
+        // clearInterval(bombInterval)
+        // bombIndex = playerIndex +20
+      }
+      // 2. // Movement: Function to add and remove missile
+
+
+
+
+
+      // **********************************************************************************************
+      // PLAYER EXPLOSION
+      // **********************************************************************************************
+      // Change initial picture to explosion state and trigger explosion sound
+      const playerExplode = document.querySelector('explosion')
+      function playerXplosion(e) {
+        const hit = document.querySelector('#hit')
+
+        if (bombIndex === playerIndex) {
+          const position1 = bombIndex
+          // clearInterval takes 1 parameter and stops the interval
+          clearInterval(playerIntervalID)
+          playerIndex = null
+          hit.play()
+          squares[position1].classList.remove('player')
+          // Need to find what
+          // explode.play()
+          squares[position1].classList.add('explosion')
+          setTimeout( ()=> {
+            //  SetTimeout will remove the enXplosionafter 1 second
+            squares[position1].classList.remove('explosion')
+
+          }, 500)
+          squares[playerIndex].classList.add('player')
+        }
+      }
+
+
+
+
 
 
       document.addEventListener('keydown', fireMissile)
@@ -288,22 +385,10 @@ function init() {
 
     }
 
-
-
-    // get hold of that parent grid div
-    const grid = document.querySelector('.grid')
-
-    // used a for loop to fill my grid with induvidual squares, as many as the with times the width
-    for (let i = 0; i < width * height; i++) {
-      const square = document.createElement('div')
-      square.classList.add('grid-item')
-      square.innerHTML = i
-      squares.push(square)
-      grid.append(square)
-    }
     // Adding the class to the square
     squares[playerIndex].classList.add('player')
     window.addEventListener('keydown', handleKeyDown)
+
 
     squares[enemyOneIndex].classList.add('enemy')
     squares[enemyTwoIndex].classList.add('enemy')
