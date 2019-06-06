@@ -22,7 +22,7 @@ let bombIndex1 = enemyTwoIndex +20
 // let bombIndex = enemyTwoIndex +20
 let laser = false
 let bomb1 = false
-let score = 0;
+let total = 0;
 // Star Destoyer
 // let destroyer = 19
 // Bomb Position
@@ -420,10 +420,13 @@ function init() {
   // SCORE COUNTER
   // **********************************************************************************************
   function add10() {
-
-    total = total + 10;
-    document.getElementById('counter').innerHTML = total;
+    if (missileIndex === enemyOneIndex) {
+      total = total + 10;
+      document.getElementById('counter').innerHTML = total
+    }
+    add10()
   }
+
 
   // scorekeeper.innerHTML = parseFloat(scorekeeper.innerHTML) + 10
 
