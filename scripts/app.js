@@ -456,8 +456,6 @@ function init() {
 
 
 
-  // scorekeeper.innerHTML = parseFloat(scorekeeper.innerHTML) + 10
-
 
 }
 
