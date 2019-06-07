@@ -18,15 +18,16 @@ let bombInterval = false
 // Missle / Bomb position
 let missileIndex = playerIndex -20
 let bombIndex = enemyOneIndex +20
-let bombIndex1 = enemyTwoIndex +20
+let bombIndex2 = enemyTwoIndex +20
 // let bombIndex = enemyTwoIndex +20
 let laser = false
 let bomb1 = false
-let total = 0;
+let total = 0
+let minusShip = 3
 // Star Destoyer
 // let destroyer = 19
 // Bomb Position
-// let bombIndex = enemyOneIndex +20
+// let bombIndex = enemyOneIndex +20`
 // let bomb1 = false
 // Start state
 // const start = document.querySelector('.start')
@@ -48,10 +49,14 @@ function init() {
   for (let i = 0; i < width * height; i++) {
     const square = document.createElement('div')
     square.classList.add('grid-item')
-    square.innerHTML = i
+    // square.innerHTML = i
     squares.push(square)
     grid.append(square)
   }
+
+  // Starfield background
+
+
 
   // ************************************************************************************************
   // LISTEN FOR 'CLICK' ON START BUTTON...THEN START
@@ -252,6 +257,33 @@ function init() {
     }
     // 2. // Movement: Function to add and remove missile
 
+    // **********************************************************************************************
+    // SCORE COUNTER
+    // **********************************************************************************************
+    function add10() {
+      total = total + 10
+      document.getElementById('total').innerHTML = total
+    }
+
+    // **********************************************************************************************
+    // LIVES COUNTER
+    // **********************************************************************************************
+    function minusLife() {
+      minusShip = minusShip - 1
+      document.getElementById('minusShip').innerHTML = minusShip
+      if (minusShip === 0) {
+        gameOver()
+        // setTimeout(() => {
+        //   alert('Game Over')
+        // }, 500)
+      }
+    }
+
+    function gameOver() {
+      grid.style.display = 'none'
+      const gameover = document.querySelector('.gameover')
+      gameover.style.display = 'block'
+    }
 
 
 
@@ -276,6 +308,7 @@ function init() {
         setTimeout( ()=> {
           //  SetTimeout will remove the enXplosionafter 1 second
           squares[position].classList.remove('explosion')
+          add10()
 
         }, 500)
       }
@@ -302,7 +335,7 @@ function init() {
         setTimeout( ()=> {
           //  SetTimeout will remove the enXplosionafter 1 second
           squares[position].classList.remove('explosion')
-
+          add10()
         }, 500)
       }
     }
@@ -319,6 +352,7 @@ function init() {
 
       shootBlast.play()
       bombIndex = enemyOneIndex + 20
+      bombIndex2 = enemyTwoIndex +20
       // bombIndex = enemyTwoIndex +20
 
       // bombInterval = setInterval(moveBomb, 150)
@@ -339,8 +373,8 @@ function init() {
       bombIndex += width
       // console.log(bombIndex)
       // console.log(squares[bombIndex])
-      if (squares[bombIndex]) {
-        squares[bombIndex].classList.add('bomb')
+      if (squares[bombIndex || bombIndex2 ]) {
+        squares[bombIndex || bombIndex2 ].classList.add('bomb')
         setTimeout(moveBomb, 300)
       } else {
         resetBomb()
@@ -372,7 +406,7 @@ function init() {
         const position1 = bombIndex
         // clearInterval takes 1 parameter and stops the interval
         clearInterval(playerIntervalID)
-        playerIndex = null
+        playerIndex = 210
         hit.play()
         squares[position1].classList.remove('player')
         // Need to find what
@@ -383,6 +417,9 @@ function init() {
           squares[position1].classList.remove('explosion')
 
         }, 500)
+        console.log('playerIndex', playerIndex)
+        console.log('squares[playerIndex]', squares[playerIndex])
+        minusLife()
         squares[playerIndex].classList.add('player')
       }
     }
@@ -416,16 +453,7 @@ function init() {
     // enemyThreeIntervalId = setInterval(handleEnemyThreeMovement, 1000)
   }
 
-  // **********************************************************************************************
-  // SCORE COUNTER
-  // **********************************************************************************************
-  function add10() {
-    if (missileIndex === enemyOneIndex) {
-      total = total + 10;
-      document.getElementById('counter').innerHTML = total
-    }
-    add10()
-  }
+
 
 
   // scorekeeper.innerHTML = parseFloat(scorekeeper.innerHTML) + 10

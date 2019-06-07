@@ -5,13 +5,17 @@
     <title>Project 1</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="scripts/app.js"></script>
   </head>
     <body>
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="clouds"></div>
 
 
 <!----------------------------HEADERS--------------------------------->
-<div class="header">
+  <div class="header">
 
     <div class="scorekeeper">
         <div id="player">Score:<span id="total">0</span></div>
@@ -26,9 +30,8 @@
 
 
 
-
     <div class="lives">
-        <div id="ships">Lives:<span id="minusship">3</span></div>
+        <div id="ships">Lives:<span id="minusShip">3</span></div>
      </div>
 
   </div>
@@ -36,7 +39,8 @@
   <!----------------------------GRID--------------------------------->
 
   <div class="gridcontainer">
-  <div class="grid"></div>
+    <div class="gameover"><h1>GAME OVER</h1></div>
+    <div class="grid"></div>
   </div>
 
 

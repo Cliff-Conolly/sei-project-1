@@ -10,10 +10,13 @@ html, body {
 }
 
 body {
-
+  /* background-image: url("../assets/images/mily_way.jpg"); */
   background-image: url(https://i.imgur.com/IyoOPwb.jpg?1);
   background-size: cover;
 }
+
+
+
 .gridcontainer {
   padding-top: 12px;
   display: flex;
@@ -87,6 +90,11 @@ div.grid-item.destroyer{
 
 }
 
+/* div.grid-item.gameOver{
+
+
+} */
+
 .header{
 padding-top: 155px;
 display: flex;
@@ -124,4 +132,14 @@ font-family: PrintChar21;
 color:  grey;
 font-size: 15px;
 display: inline-block;
+}
+
+.gameover{
+  text-align: center;
+  background: rgb(0, 255, 102);
+  font-family: PrintChar21;
+  color:  grey;
+  font-size: 15px;
+  display: none;
+  font-size: 100px;
 }
