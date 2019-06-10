@@ -1,4 +1,6 @@
 //  Grid state
+
+
 const width = 20
 const height = 11
 const squares = []
@@ -400,14 +402,15 @@ function init() {
     // Change initial picture to explosion state and trigger explosion sound
     const playerExplode = document.querySelector('explosion')
     function playerXplosion(e) {
-      const hit = document.querySelector('#hit')
+      const xhit = document.querySelector('#xhit')
 
       if (bombIndex === playerIndex) {
         const position1 = bombIndex
         // clearInterval takes 1 parameter and stops the interval
         clearInterval(playerIntervalID)
         playerIndex = 210
-        hit.play()
+        const xHit =
+        xhit.play()
         squares[position1].classList.remove('player')
         // Need to find what
         // explode.play()
