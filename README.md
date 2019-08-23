@@ -70,3 +70,5 @@ Being able to reverse engineer the firing mechanism for the player ship to the e
 Future features
 
 Future iterations will include more enemy ships, a Star Destroyer as the ‘mothership’. Also now that I can maneuver the photorealistic images in different directions, I will have an effect whereby every random shot that the makes on the Tie-Fighters, it will ‘appear’ to spin out of control towards the X-Wing Fighter to increase the difficulty level whereby the player has another object to escape from.
+
+### Live site: https://cliff-conolly.github.io/sei-project-1/
