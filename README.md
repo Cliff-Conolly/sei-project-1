@@ -1,4 +1,6 @@
-WDI-Project1 by:  Cliff Conolly
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #1: Space Invaders
+
+Project 1 by:  Cliff Conolly
 
 General Assembly Project 1:  Simple front-end game
 
