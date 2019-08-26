@@ -10,13 +10,13 @@ let playerIndex = 210
 let enemyOneIndex = 23
 let enemyTwoIndex = 27
 // let enemyThreeIndex = 25
-let playerIntervalID = false
+const playerIntervalID = false
 let enemyOneIntervalId = false
 let enemyTwoIntervalId = false
 // let enemyThreeIntervalId = false
 // // Missile / Bomb state
 let missileInterval = false
-let bombInterval = false
+const bombInterval = false
 // Missle / Bomb position
 let missileIndex = playerIndex -20
 let bombIndex = enemyOneIndex +20
@@ -94,16 +94,7 @@ function init() {
             playerIndex--
           }
           break
-        // case 38:
-        //   if (playerIndex - width >= 0) {
-        //     playerIndex -= width
-        //   }
-        //   break
-        // case 40:
-        //   if (playerIndex + width < width * width) {
-        //     playerIndex += width
-        //   }
-        // break
+        
         default:
           playerShouldMove = false
       }
@@ -308,7 +299,7 @@ function init() {
         // explode.play()
         squares[position].classList.add('explosion')
         setTimeout( ()=> {
-          //  SetTimeout will remove the enXplosionafter 1 second
+          //  SetTimeout will remove the enXplosion after 1 second
           squares[position].classList.remove('explosion')
           add10()
 
