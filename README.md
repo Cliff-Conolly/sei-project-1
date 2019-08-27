@@ -54,13 +54,13 @@ The player controls the movement of the spaceship (X-Wing Fighter) in order to k
 
 ## Process:
 
-#### Grid Layout & Generation of objects on screen
+#### Grid Layout & Generation of objects on screen:
 
 The starting point for this game was creating the basic grid layout on which the dogfight could happen between the player and enemies and where they could move. This was created by a list of 'div's in the HTML. Each cell within the grid was an individual element. These cells are nestled within a container. The X-Wing and Tie-Fighters along with the other images for the blasters and explosions were images that I found on a website that uses photorealistic images that you can rotate in any direction to get the angle you want. Therefore, I aligned the fighters at an angle to make it appear more 3 dimensional and realistic as they face off.
 
-#### Functionality:
+## Functionality:
 
-#### Controls
+#### Controls:
 * Spaceship (X-Wing Fighter): ←  →  keys
 * Start game: Pressing "PRESS START" at top.
 * End game: Game ends after all ships are killed (“End Button” will be added in future upgrades)
@@ -71,7 +71,7 @@ Functions for every aspect included the firing and movement of the missiles by b
 #### Missile Hits:
 
 
-###### Enemy Explosion:
+###### Enemy Explosion
 To determine when an enemy was killed, the enemy ship and missile fired from the X-Wing fighter had to occupy the same index in the grid. Upon contact the explosion audio would sound, the enemy ship would be removed, and the image of the explosion would be visible for a half second to simulate disappearing.
 
 ```
@@ -126,10 +126,10 @@ function playerXplosion(e) {
 
 ```
 
-#### Key Press for Firing and Movement
+#### Key Press for Firing and Movement:
 The player has to manoevre from left to right on the screen and fire missiles up to the enemies. Eventlisteners were added on keydowns so that the when the Space Bar was hit, it initiated the keycode 32 and fired a missile.
 
-##### Firing:
+###### Firing:
 ```
 function fireMissile(e){
   const shootBlast = document.querySelector('#blaster')
@@ -148,7 +148,7 @@ document.addEventListener('keydown', fireMissile)
 squares[playerIndex].classList.add('player')
 window.addEventListener('keydown', handleKeyDown)
 ```
-##### Movement:
+###### Movement:
 Also when the left and right arrows were 'keydowned' they initiated the keycodes 37 and 39 respectively, which would perform the function of movement for the player.
 
 ```
