@@ -90,11 +90,9 @@ function init() {
           break
         case 37:
           if (playerIndex % width > 0) {
-
             playerIndex--
           }
           break
-        
         default:
           playerShouldMove = false
       }
