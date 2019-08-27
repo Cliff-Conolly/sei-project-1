@@ -17,7 +17,9 @@ The player controls the movement of the spaceship (X-Wing Fighter) in order to k
 * JavaScript (ES6)
 * HTML5
 * CSS
+* Git
 * GitHub
+* Google Fonts
 
 
 ## Game Instructions:
