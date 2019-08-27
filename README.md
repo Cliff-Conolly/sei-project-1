@@ -5,7 +5,7 @@ Project 1 by:  Cliff Conolly
 ---
 
 
-## Overview:
+## Introduction:
 
 Space Invaders is a 1978 arcade game and one of the first of its kind of  the shoot’em up genre. The goal is to defeat wave after wave of descending aliens with a horizontally moving laser to earn as many points as possible. Occasionally, an alien mother-ship will go randomly from left or right or vice versa across the top of the screen. This version is a Star Wars theme, and was my first project at General Assembly and quickly became a passion project for me.
 
@@ -30,7 +30,7 @@ The player controls the movement of the spaceship (X-Wing Fighter) in order to k
 ---
 
 
-## Game Instructions:
+## Overview:
 - 1.	The game is started by clicking on the "PRESS START" button.
 
 ![Start](assets/screenshots/Start.gif)
