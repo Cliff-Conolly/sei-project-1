@@ -9,9 +9,13 @@ Space Invaders is a 1978 arcade game and one of the first of its kind of  the sh
 
 The player controls the movement of the spaceship (X-Wing Fighter) in order to kill the enemy ships (Tie-Fighters) which are approaching closer as the game goes on.
 
+---
+
 ## Timeframe:
 
 1 week (June 2019)
+
+---
 
 ## Technologies used:
 * JavaScript (ES6)
@@ -20,6 +24,8 @@ The player controls the movement of the spaceship (X-Wing Fighter) in order to k
 * Git
 * GitHub
 * Google Fonts
+
+---
 
 
 ## Game Instructions:
@@ -52,13 +58,15 @@ The player controls the movement of the spaceship (X-Wing Fighter) in order to k
 
 ![Start](assets/screenshots/over.gif)
 
-
+---
 
 ## Process:
 
 #### Grid Layout & Generation of objects on screen:
 
 The starting point for this game was creating the basic grid layout on which the dogfight could happen between the player and enemies and where they could move. This was created by a list of 'div's in the HTML. Each cell within the grid was an individual element. These cells are nestled within a container. The X-Wing and Tie-Fighters along with the other images for the blasters and explosions were images that I found on a website that uses photorealistic images that you can rotate in any direction to get the angle you want. Therefore, I aligned the fighters at an angle to make it appear more 3 dimensional and realistic as they face off.
+
+---
 
 ## Functionality:
 
@@ -180,22 +188,32 @@ function handleKeyDown(e) {
 
 ```
 
+
+
 #### Audio:
 Original sound files for the blasters from Star Wars for the respective X-Wing and Tie-Fighters were also used to simulate when they fired and also when they exploded from a missile hit.
 
+---
+
 ## Challenges:
 The biggest challenge was trying to get multiple (tie-fighter) ships. It was only in hindsight that I should have used classes to accomplish this. The code I wrote for my first enemy ship could be duplicated, and I did it for a second ship but the code got buggier when I tried a third.
+
+---
 
 
 ## Wins:
 
 The most satisfying moment was when I reverse engineered the player firing function (upward) and used it for the enemies to shoot in the opposite direction (downward). Upon testing it, there were only two lines of code that were needed to fix the interval at which the enemy fired, and it ‘worked’! I was amazed because it was a surgical operation that took 1 ½ hours to do and that was the only bug for that function.
 
+---
+
 ## Bugs:
 
 When the first Tie-Fighter is shot and destroyed, there is a bug that is causing bombs to be dropped on the left of the screen continuously and appears to come out of nowhere. This is the first issue to fix as soon as I start tackling the upgrade.
 
 ![Start](assets/screenshots/bug.gif)
+
+---
 
 
 ## Future features:
