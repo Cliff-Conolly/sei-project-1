@@ -68,6 +68,20 @@ The player controls the movement of the spaceship (X-Wing Fighter) in order to k
 
 The starting point for this game was creating the basic grid layout on which the dogfight could happen between the player and enemies and where they could move. This was created by a list of 'div's in the HTML. Each cell within the grid was an individual element. These cells are nestled within a container. The X-Wing and Tie-Fighters along with the other images for the blasters and explosions were images that I found on a website that uses photorealistic images that you can rotate in any direction to get the angle you want. Therefore, I aligned the fighters at an angle to make it appear more 3 dimensional and realistic as they face off.
 
+###### HTML
+
+```
+<div class="gridcontainer">
+  <div class="grid"></div>
+</div>
+
+```
+
+###### JavaScript
+```
+const grid = document.querySelector('.grid')
+```
+
 ---
 
 ## Functionality:
