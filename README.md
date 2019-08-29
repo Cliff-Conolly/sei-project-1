@@ -209,6 +209,14 @@ function handleKeyDown(e) {
 #### Audio:
 Original sound files for the blasters from Star Wars for the respective X-Wing and Tie-Fighters were also used to simulate when they fired and also when they exploded from a missile hit.
 
+```
+<audio id="blaster" src="assets/audio/blaster-firing.mp3" ></audio>
+<audio id="enemyBlaster" src="assets/audio/TIE_fighter_fire 1.mp3"></audio>
+<audio id="hit" src="assets/audio/TIE_fighter_explode.mp3" ></audio>
+<audio id="xhit" src="assets/audio/XWing_explode.mp3"></audio>
+
+```
+
 ---
 
 ## Challenges:
