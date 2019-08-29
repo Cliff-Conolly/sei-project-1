@@ -222,4 +222,4 @@ When the first Tie-Fighter is shot and destroyed, there is a bug that is causing
 
 Future iterations will include more enemy ships, and a Star Destroyer as the ‘mothership’; as it enters onto the screen the 'Empire Theme' will play.  Also now that I can manoeuver the photorealistic images in different directions I will have an effect whereby any shot that clips a Tie-Fighter, will make it ‘appear’ to spin out of control towards the X-Wing Fighter and increase the difficulty level whereby the player has another object to escape from.
 
-#### Live site: https://cliff-conolly.github.io/sei-project-1/
+#### Deployed here: https://cliff-conolly.github.io/sei-project-1/
