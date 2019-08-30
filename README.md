@@ -76,6 +76,13 @@ The starting point for this game was creating the basic grid layout on which the
 </div>
 
 ```
+###### CSS
+```
+div.grid-item {
+  width: 50px;
+  height: 50px;
+}
+```
 
 ###### JavaScript
 ```
