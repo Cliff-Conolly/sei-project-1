@@ -1,4 +1,4 @@
-
+/* 
 * {
   box-sizing: border-box;
 }
@@ -10,12 +10,9 @@ html, body {
 }
 
 body {
-  /* background-image: url("../assets/images/mily_way.jpg"); */
   background-image: url(https://i.imgur.com/IyoOPwb.jpg?1);
   background-size: cover;
 }
-
-
 
 .gridcontainer {
   padding-top: 12px;
@@ -43,14 +40,11 @@ div.grid-item.player {
 
   background-repeat: no-repeat;
   background-size: contain;
-  /* background: red; */
 
 }
 
 div.grid-item.enemy{
   background-image: url("../assets/images/Vader's Tie Fighter.G01.watermarked.2k.png");
-  /* url("https://i.imgur.com/ZHeEN2V.jpg"); */
-  /* url("../assets/images/space-invaders-icons/saucer1b.ico"); */
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -58,8 +52,7 @@ div.grid-item.enemy{
 
 div.grid-item.missile{
 background-image: url("../assets/images/Energy Beam.O01.watermarked.2k.png");
-url("https://i.imgur.com/iv0OLQM.jpg");
-/* url("../assets/images/missile.png" */
+
 
 background-repeat: no-repeat;
 background-size: contain;
@@ -75,7 +68,6 @@ background-position: center;
 
 div.grid-item.explosion{
   background-image: url("../assets/images/LargeExplosion.png");
-  /* background-color: red; */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -89,10 +81,6 @@ div.grid-item.destroyer{
 
 }
 
-/* div.grid-item.gameOver{
-
-
-} */
 
 .header{
 padding-top: 155px;
@@ -110,9 +98,6 @@ justify-content: space-around;
   display: inline-block;
 }
 
-/* .button{
-color: rgb(0, 255, 102);
-} */
 
 
 .start{
@@ -141,4 +126,209 @@ display: inline-block;
   font-size: 15px;
   display: none;
   font-size: 100px;
+} */
+
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+body {
+  background-image: url("../assets/images/crt.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gridcontainer {
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*------------- Headers --------------*/
+
+header {
+  /* text-align: center; */
+
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 50%; */
+  /* background: black; */
+  /* color: rgb(0, 255, 102);
+  font-family: PrintChar21; */
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  /* background-image: url("../assets/images/130px.png"); */
+
+  padding: 16px; /* Was 5px */
+  margin: 35px; /* Was 70px */
+}
+
+/* .header-titles {
+  padding-top: 17px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.start {
+  text-align: center;
+  background: rgb(0, 255, 102);
+  font-family: PrintChar21;
+  color: grey;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.lives {
+  text-align: center;
+  background: rgb(0, 255, 102);
+  font-family: PrintChar21;
+  color: grey;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.scorekeeper {
+  text-align: center;
+  background: rgb(0, 255, 102);
+  font-family: PrintChar21;
+  color: grey;
+  font-size: 15px;
+  display: inline-block;
+} */
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  /* background: black; */
+  color: rgb(0, 255, 102);
+  font-family: PrintChar21;
+ 
+}
+
+.game-wrapper {
+  /* flex: 1; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #222; */
+  width: 1000px;
+  height: 600px;
+}
+.game {
+  width: 1000px;
+  height: 600px;
+  background: url(../assets/images/Star-PNG-Pic.png);
+  /* background-repeat: no-repeat; */
+  animation: scroll-background 15s linear infinite;
+
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); */
+  position: relative;
+}
+
+@keyframes scroll-background {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: 256px;
+  }
+}
+
+.game .enemy {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -18px;
+  width: 40px;
+}
+
+.game .explode {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -18px;
+  width: 40px;
+}
+
+.game .enemyExplosion {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -18px;
+  width: 40px;
+}
+
+.game .player {
+  position: absolute;
+  margin-left: -20px;
+  width: 40px;
+}
+
+.game .laser {
+  position: absolute;
+  margin-left: 1.0px;
+  height: 30px;
+}
+
+.game .enemy-laser {
+  position: absolute;
+  margin-left: -2.5px;
+  height: 30px;
+}
+
+.congratulations {
+  display: none;
+  position: absolute;
+  /* background: transparent; */
+  font-family: PrintChar21;
+  color: rgb(0, 255, 102) ;
+  padding: 20px 50px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); */
+  /* border-radius: 10px; */
+  text-align: center;
+  animation: pop-in 1s;
+}
+
+.game-over {
+  display: none;
+  position: absolute;
+  /* background: rgb(0, 255, 102) ; */
+  font-family: PrintChar21;
+  color: rgb(0, 255, 102) ;
+  padding: 20px 50px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); */
+  /* border-radius: 10px; */
+  text-align: center;
+  animation: pop-in 1s;
+}
+
+.btn {
+  border: 2px solid rgb(0, 255, 102) ;
+  /* border-radius: 3px; */
+  box-shadow: 0 2px rgba(0, 0, 0, 0.15);
+  background: rgb(0, 255, 102) ;
+  padding: 10px 40px;
+  font: 14px PrintChar21;
+}
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0, 30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
 
 
 <!----------------------------HEADERS--------------------------------->
-  <div class="header">
+  <!-- <div class="header">
 
     <div class="scorekeeper">
         <div id="player">Score:<span id="total">0</span></div>
@@ -34,11 +34,11 @@
         <div id="ships">Lives:<span id="minusShip">3</span></div>
      </div>
 
-  </div>
+  </div> -->
 
   <!----------------------------GRID--------------------------------->
 
-  <div class="gridcontainer">
+  <!-- <div class="gridcontainer">
     <div class="gameover"><h1>GAME OVER</h1></div>
     <div class="grid"></div>
   </div>
@@ -54,4 +54,62 @@
 
     </body>
 
+</html> --> 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+
+  <body>
+    <!--------------------Headers------------------------>
+    <header ><img src="./assets/images/135px.png" alt=""></header>
+    <!-- <div class="header-titles">
+      <div class="scorekeeper">
+        <div id="player">Left arrow<span id="total">0</span></div>
+      </div>
+
+      <div class="start">
+        <span><div id="startbutton">PRESS SPACEBAR to FIRE</div></span>
+      </div>
+
+      <div class="lives">
+        <div id="ships">Right arrow<span id="minusShip">3</span></div>
+      </div>
+    </div> -->
+
+    <!--------------------Grid------------------------>
+    <div class="gridcontainer"> 
+      <div class="game-wrapper">
+        <div class="game"></div>
+        <div class="congratulations">
+          <h1>Congratulations!</h1>
+          <h2>You won the game</h2>
+          <button class="btn" onclick="window.location.reload()">
+            Restart
+          </button>
+        </div>
+        <div class="game-over">
+          <h1>GAME OVER</h1>
+          <!-- <h2>You lost the game</h2> -->
+          <button class="btn" onclick="window.location.reload()">
+            Restart
+          </button>
+        </div>
+      </div>
+     
+    </div>
+    <footer>Left/right keys to move, spacebar to shoot</footer>
+
+    <script type="text/javascript" src="scripts/app.js"></script>
+  </body>
 </html>
+
+
+
